@@ -10,7 +10,7 @@
     "mocha": "^9.1.0"
   },
   "scripts": {
-    "test": "mocha tests/js/dropboxtest.js"
+    "test": "mocha tests/js/"
   },
   "keywords": [],
   "author": "",

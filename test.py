@@ -6,10 +6,13 @@ import time
 
 def os_config():
   info = platform.uname()
-  if(info.system =="Windows"):
-    win_cmd()
+  if sys.argv[1] == "node":
+    node_test()
+  if sys.argv[1] =='cpp':
+    if(info.system =="Windows"):
+      win_cpp()
 
-def win_cmd():
+def win_cpp():
   if sys.argv[1] == 'cpp':
     os.system(f"cmd /c g++ tests/cpp/{sys.argv[2]}test.cpp -o tests/cpp/_run/{sys.argv[2]}test")
     t = 3
@@ -19,9 +22,6 @@ def win_cmd():
     subprocess.call([testfile])
     os.remove(f"tests/cpp/_run/{sys.argv[2]}test.exe")
 
-# def cpp_garbage_collect():
-#   print(os.listdir(f"tests/cpp/_run/{sys.arv}test.exe"))
-
 def countdown(t):
   while t:
     mins, secs = divmod(t, 60)
@@ -30,4 +30,16 @@ def countdown(t):
     time.sleep(1)
     t -= 1
 
+
+def node_test():
+  testfile = os.path.join(f"tests/js/{sys.argv[2]}test.js")
+  os.system(f"cmd /c npm test {testfile}")
+
+
+
+
+
+
+
 os_config()
+
