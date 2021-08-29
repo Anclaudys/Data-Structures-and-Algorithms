@@ -17,6 +17,10 @@ def win_cmd():
       countdown(t)
     testfile = os.path.join(f"tests//cpp/_run/{sys.argv[2]}test.exe")
     subprocess.call([testfile])
+    os.remove(f"tests/cpp/_run/{sys.argv[2]}test.exe")
+
+# def cpp_garbage_collect():
+#   print(os.listdir(f"tests/cpp/_run/{sys.arv}test.exe"))
 
 def countdown(t):
   while t:
